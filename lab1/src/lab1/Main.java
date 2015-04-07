@@ -14,7 +14,10 @@ public class Main {
 	void run(String[] args){
 		//Reading the file
 		String fileName = args[0];//"sm-friends.in";
-		String filePath = "/usr/local/cs/edaf05/lab1/";
+		String filePath = "";
+		if(!fileName.contains("/")){
+			filePath = "/usr/local/cs/edaf05/lab1/";
+		}
 		filePath += fileName;
 		Scanner sc = null;
 		try {
@@ -65,6 +68,7 @@ public class Main {
 			int man = freeMen.getFirst();
 			for(int i = proposedTo[man]; i < n; i++){
 				int woman = men[man][i];
+				proposedTo[man]++;
 				if(pairs[woman] == -1){//the woman is free
 					pairs[woman] = man;
 					menToWomen[man] = woman;
@@ -80,7 +84,6 @@ public class Main {
 						break;
 					}
 				}
-				proposedTo[man]++;
 			}		
 		}
 
