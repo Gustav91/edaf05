@@ -14,9 +14,11 @@ public class Main {
 	void run(String[] args){
 		//Reading the file
 		String fileName = args[0];//"sm-friends.in";
+		String filePath = "/usr/local/cs/edaf05/lab1/";
+		filePath += fileName;
 		Scanner sc = null;
 		try {
-			sc = new Scanner(new File(fileName));
+			sc = new Scanner(new File(filePath));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
