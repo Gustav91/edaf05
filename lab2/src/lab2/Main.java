@@ -35,7 +35,11 @@ public class Main {
 			Scanner scan = new Scanner(new File(filePath));
 			while(scan.hasNextLine()){
 				String[] input = scan.nextLine().split(" ");
-				System.out.println(distanceBetween(graph, input[0], input[1]));
+				if(input[0].equals(input[1])){
+					System.out.println("0");
+				}else{
+					System.out.println(distanceBetween(graph, input[0], input[1]));
+				}
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -62,6 +66,7 @@ public class Main {
 				for(int i = 0; i < words.get(1).size(); i++){
 					if(!discovered.get(words.get(1).get(i))){
 						layers.get(layer+1).add(words.get(1).get(i));
+						discovered.put(words.get(1).get(i), true);
 					}
 					if(to.equals(words.get(1).get(i))){
 						return layer + 1;

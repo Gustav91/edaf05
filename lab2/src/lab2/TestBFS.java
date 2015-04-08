@@ -66,7 +66,7 @@ public class TestBFS {
 	/**
 	 * Simple test case for the 'words-10' test data.
 	 */
-	@Test
+	//@Test
 	public void testWords() {
 		runTestCase("words-250");
 	}
@@ -77,7 +77,7 @@ public class TestBFS {
 	 * You may want to comment this out until you think your program works, as
 	 * this test can take some time to execute.
 	 */
-	//@Test
+	@Test
 	public void testAll() {
 		File dir = new File(TESTDATA_DIR);
 
