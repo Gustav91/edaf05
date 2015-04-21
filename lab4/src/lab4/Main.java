@@ -16,7 +16,7 @@ public class Main {
 
 	private void run() {
 		String filePath = "/usr/local/cs/edaf05/lab4/";
-		String fileName = "kroA100.tsp";		
+		String fileName = "a280.tsp";		
 		filePath += fileName;
 
 		try {
@@ -121,8 +121,8 @@ public class Main {
 
 		double delta = Math.min(q[0].distanceTo(q[1]), r[0].distanceTo(r[1]));
 		System.out.println("Delta: " + delta);
-		minPair[0] = new Point(1,1,1);
-		minPair[1] = new Point(1,1,1);
+		//minPair[0] = new Point(1,1,1);
+		//minPair[1] = new Point(1,1,1);
 		//----------------------------------------FORTSÄTT HÄÄÄÄR!!!!!!--------------------------------------------
 		return minPair;//Should be the correct min (change later)
 	}
