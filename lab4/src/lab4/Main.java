@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
@@ -47,7 +48,7 @@ public class Main {
 			List<Point> points = new LinkedList<Point>();
 
 			line = scan.nextLine();
-			while(!line.startsWith("EOF")){
+			while(!line.startsWith("EOF") && line != null){
 				String[] data = line.split(" ");
 				int indexes[] = {0, 0, 0};
 				int varNbr = 0;
@@ -69,8 +70,12 @@ public class Main {
 
 				Point point = new Point(name, x, y);
 				points.add(point);
-				scan.reset();//---------------------------------------------remove?-------------------------
-				line = scan.nextLine();
+				
+				try{
+					line = scan.nextLine();
+				}catch(NoSuchElementException e){
+					line = "EOF";
+				}
 			}
 
 			/*for(int i = 0; i < points.size(); i++){//Prints all the points
@@ -108,7 +113,7 @@ public class Main {
 
 	private Point[] closestPairRec(List<Point> px, List<Point> py) {
 		Point[] minPair = new Point[2];
-
+		Collections.sort(px, new ComparatorX());
 		if(px.size() <= 3){
 			//return pair with minimum distance
 			List<Point> sum = new LinkedList<Point>();
@@ -137,6 +142,9 @@ public class Main {
 		List<Point> Qy = py.subList(0, mid);
 		List<Point> Rx = px.subList(mid, px.size());
 		List<Point> Ry = py.subList(mid, py.size());
+		
+		//PROTIP: copy left side to new x-list, mark these points as left points
+		//loop through all points, if marked then put in left y-list, else put in right y-list
 
 
 		Point[] q = closestPairRec(Qx, Qy);

@@ -100,11 +100,11 @@ public class Main {
 			while(scan.hasNextLine()){
 				String line = scan.nextLine();
 				if(!line.contains("[")){
-					cities.put(line.substring(0, line.length()-1), new PriorityQueue<Map<Integer, String>>(1,comp));
+					cities.put(line.substring(0, line.length()-1), new PriorityQueue<Map<Integer, String>>(1,comp));// change line.length()-1
 				}else{
 					String[] split = line.split("--");
 					String strDist = split[1].split(" \\[")[1];
-					strDist = strDist.substring(0, strDist.length()-1);
+					strDist = strDist.substring(0, strDist.length()-1);//change strDist.length()-1
 					int distance = Integer.parseInt(strDist);
 					String cityName = split[1].split(" \\[")[0];
 					
